@@ -2,7 +2,7 @@
 
 Quacker es una aplicación estilo Twitter creada para la asignatura de entorno servidor en DAW 25/26.
 
-Para mantener la rama 'main' limpia recomiendo que usemos el siguiente flujo de trabajo:
+Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de trabajo:
 
 ## La rama main
 
@@ -51,7 +51,7 @@ git push -u origin feature/nombre-de-la-feature
 
 ### **4. Crear un Pull Request**
 
-* Desde GitHub, abre un PR desde tu rama hacia `main`.
+* Desde GitHub, abre un pull request desde tu rama hacia `main`.
 * Esperar la aprobación de alguien más, mejor evitar historias raras y perdidas de tiempo.
 
 ### **5. Resolver conflictos *(si es que hay)***
