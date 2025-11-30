@@ -25,7 +25,7 @@ feature/login
 feature/feed
 feature/perfil-usuario
 
-## **Pasos para trabajar con el proyecto**
+### **Pasos para trabajar con el proyecto**
 
 ### **1. Clonar el repositorio**
 ````bash
@@ -68,7 +68,7 @@ Resuelve los conflictos, haz commit y sube los cambios.
 
 Solo se hace **cuando el PR esté revisado y aprobado**.
 
-## **Cosas a tener en cuenta para trabajar rápidos y cómodos**
+## **Cosas a tener en cuenta para trabajar rápida y cómodamente**
 
 * Hacer pull request pequeños para evitar tener que resolver muchos conflictos.
 * Revisar pull requests del resto y **preguntar si hay dudas**.
