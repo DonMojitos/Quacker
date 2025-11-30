@@ -49,12 +49,12 @@ git commit -m "descripción del cambio"
 git push -u origin feature/nombre-de-la-feature
 ```
 
-### **4. Crear un Pull Request**
+### **4. Crear una Pull Request**
 
-* Desde GitHub, abre un pull request desde tu rama hacia `main`.
+* Desde GitHub, abre una pull request desde tu rama hacia `main`.
 * Esperar la aprobación de alguien más, mejor evitar historias raras y perdidas de tiempo.
 
-### **5. Resolver conflictos *(si es que hay)***
+### **5. Resolver conflictos (si es que hay)**
 
 Antes de hacer merge, actualiza tu rama con lo último de `main`:
 
@@ -67,7 +67,7 @@ Resuelve los conflictos, haz commit y sube los cambios.
 
 ### **6. Merge a `main`**
 
-Solo se hace **cuando el PR esté revisado y aprobado**.
+Solo se hace **cuando la pull request esté revisado y aprobado**.
 
 ## **Cosas a tener en cuenta para trabajar rápida y cómodamente**
 
