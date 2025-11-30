@@ -25,15 +25,15 @@ feature/login
 feature/feed
 feature/perfil-usuario
 
-### **Pasos para trabajar con el proyecto**
+## **Pasos para trabajar con el proyecto**
 
-## **1. Clonar el repositorio**
+### **1. Clonar el repositorio**
 
 ```bash
 git clone git@github.com:DonMojitos/Quacker.git
 ```
 
-## **Idealmente usaremos la forma SSH para no tener que escribir usuario y contraseña a cada rato**
+* Idealmente usaremos la forma SSH para no tener que escribir usuario y contraseña a cada rato
 
 ### **2. Crear nueva rama para la feature**
 
