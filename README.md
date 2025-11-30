@@ -29,9 +29,11 @@ feature/perfil-usuario
 
 ### **1. Clonar el repositorio**
 
-git clone <URL_DEL_REPO>
+git clone git@github.com:DonMojitos/Quacker.git
 
-### **2. Crear una nueva rama para tu feature**
+**Idealmente usaremos la forma SSH para no tener que escribir usuario y contraseña a cada rato**
+
+### **2. Crear nueva rama para la feature**
 
 ```bash
 git checkout -b feature/nombre-de-la-feature
