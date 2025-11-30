@@ -4,13 +4,13 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
 Para mantener la rama 'main' limpia os recomiendo el siguiente flujo de trabajo:
 
-### Rama main
+## La rama main
 
 * Contiene únicamente código que se haya aprobado.
 * La dejo bloqueada para evitar "pushes" directos, como un por si acaso.
 * Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
 
-### Ramas de características ('feature/*')
+## Ramas de características (feature/*)
 
 Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
 No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
@@ -27,8 +27,9 @@ feature/perfil-usuario
 
 ### **Pasos para trabajar con el proyecto**
 
-### **1. Clonar el repositorio**
-````bash
+## **1. Clonar el repositorio**
+
+```bash
 git clone git@github.com:DonMojitos/Quacker.git
 ```
 
