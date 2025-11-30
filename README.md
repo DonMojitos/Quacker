@@ -28,10 +28,11 @@ feature/perfil-usuario
 ## **Pasos para trabajar con el proyecto**
 
 ### **1. Clonar el repositorio**
-
+````bash
 git clone git@github.com:DonMojitos/Quacker.git
+```
 
-**Idealmente usaremos la forma SSH para no tener que escribir usuario y contraseña a cada rato**
+## **Idealmente usaremos la forma SSH para no tener que escribir usuario y contraseña a cada rato**
 
 ### **2. Crear nueva rama para la feature**
 
@@ -39,20 +40,20 @@ git clone git@github.com:DonMojitos/Quacker.git
 git checkout -b feature/nombre-de-la-feature
 ```
 
-### **3. Subir tus cambios**
+### **3. Subir los cambios**
 
 ```bash
 git add .
-git commit -m "feat: descripción del cambio"
+git commit -m "descripción del cambio"
 git push -u origin feature/nombre-de-la-feature
 ```
 
-### **4. Crear un Pull Request (PR)**
+### **4. Crear un Pull Request**
 
 * Desde GitHub, abre un PR desde tu rama hacia `main`.
-* Espera la revisión y aprobación de, al menos, otro miembro del equipo.
+* Esperar la aprobación de alguien más, mejor evitar historias raras y perdidas de tiempo.
 
-### **5. Resolver conflictos *(si los hay)***
+### **5. Resolver conflictos *(si es que hay)***
 
 Antes de hacer merge, actualiza tu rama con lo último de `main`:
 
@@ -67,54 +68,10 @@ Resuelve los conflictos, haz commit y sube los cambios.
 
 Solo se hace **cuando el PR esté revisado y aprobado**.
 
----
+## **Cosas a tener en cuenta para trabajar rápidos y cómodos**
 
-## 🔐 **Protección de ramas**
+* Hacer pull request pequeños para evitar tener que resolver muchos conflictos.
+* Revisar pull requests del resto y **preguntar si hay dudas**.
+* Usar nombres claros principalmente en ramas, los commits que se entiendan a poder ser.
 
-La rama `main` debe estar protegida:
-
-* ❌ No se permiten pushes directos.
-* ✔ Requiere al menos una revisión en todos los PR.
-* ✔ Requiere que los tests (si existen) pasen.
-
-Esto evita pérdida de código y mantiene calidad.
-
----
-
-## 📝 **Convención de commits (opcional, recomendada)**
-
-Utilizamos **Conventional Commits**:
-
-* `feat:` → Nueva funcionalidad
-* `fix:` → Correcciones de errores
-* `refactor:` → Cambios internos sin modificar funcionalidad
-* `docs:` → Cambios en documentación
-
-Ejemplo:
-
-```
-feat: añadir sistema de likes
-fix: corregido bug en autenticación
-```
-
----
-
-## 👥 **Normas básicas del equipo**
-
-* PRs pequeños y frecuentes.
-* Revisar PRs de compañeros.
-* No dejar ramas abandonadas.
-* Usar nombres claros tanto en ramas como commits.
-
----
-
-## 📦 **Pendiente de añadir**
-
-* Requerimientos del entorno de desarrollo.
-* Estructura de carpetas del proyecto.
-* Guía de estilo del código.
-* Checklist para revisar Pull Requests.
-
----
-
-Si quieres, puedo ampliarlo con secciones como *setup del entorno*, *estilo de código*, *estructura del backend/frontend*, o añadir un CI/CD básico.
+Fin README.
