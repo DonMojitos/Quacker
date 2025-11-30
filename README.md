@@ -2,7 +2,7 @@
 
 Quacker es una aplicación estilo Twitter creada para la asignatura de entorno servidor en DAW 25/26.
 
-Para mantener la rama 'main' limpia os recomiendo el siguiente flujo de trabajo:
+Para mantener la rama 'main' limpia recomiendo que usemos el siguiente flujo de trabajo:
 
 ## La rama main
 
@@ -17,13 +17,13 @@ No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
 
 Formato recomendado:
 
-feature/nombre-de-la-feature
+*feature/nombre-de-la-feature
 
 Ejemplos:
 
-feature/login
-feature/feed
-feature/perfil-usuario
+* feature/login
+* feature/feed
+* feature/perfil-usuario
 
 ## **Pasos para trabajar con el proyecto**
 
