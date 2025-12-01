@@ -71,7 +71,7 @@ git push -u origin feature/nombre-de-la-feature
 
 ### **5. Resolver conflictos (si es que hay)**
 
-Antes de hacer merge, actualiza tu rama con lo último de `main`:
+Antes de hacer merge, actualiza tu rama con lo último de `develop`:
 
 ```bash
 git fetch
