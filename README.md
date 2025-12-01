@@ -9,6 +9,13 @@ Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de 
 * Contiene únicamente código que se haya aprobado.
 * La dejo bloqueada para evitar "pushes" directos, como un por si acaso.
 * Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
+* De la unica rama que se mergea a main es `develop`.
+
+## La rama develop
+
+* Contiene únicamente código que se haya aprobado.
+* Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
+* En esta rama se mergea el codigo de las ramas `features`.
 
 ## Ramas personales (nombre-alumno)
 
