@@ -10,14 +10,22 @@ Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de 
 * La dejo bloqueada para evitar "pushes" directos, como un por si acaso.
 * Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
 
+## Ramas personales (nombre-alumno)
+
+* Contiene únicamente código que estemso muy muy seguros de que funka.
+* Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
+
+Ejemplos:
+
+* ivan
+* manuel
+* monica
+
 ## Ramas de características (feature/*)
 
+Estas ramas nacen de nuestras ramas personales.
 Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
 No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
-
-Formato recomendado:
-
-*feature/nombre-de-la-feature
 
 Ejemplos:
 
@@ -60,14 +68,18 @@ Antes de hacer merge, actualiza tu rama con lo último de `main`:
 
 ```bash
 git fetch
-git pull origin main
+git pull origin develop
 ```
 
 Resuelve los conflictos, haz commit y sube los cambios.
 
-### **6. Merge a `main`**
+### **6. Merge a `develop`**
 
 Solo se hace **cuando la pull request esté revisado y aprobado**.
+
+### **7. Merge a `main`**
+
+Solo se hace **el codigo sepamos que funka chido**.
 
 ## **Cosas a tener en cuenta para trabajar rápida y cómodamente**
 
