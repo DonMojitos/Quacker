@@ -66,7 +66,7 @@ git push -u origin feature/nombre-de-la-feature
 
 ### **4. Crear una Pull Request**
 
-* Desde GitHub, abre una pull request desde tu rama hacia `main`.
+* Desde GitHub, abre una pull request desde tu rama hacia `develop`.
 * Esperar la aprobación de alguien más, mejor evitar historias raras y perdidas de tiempo.
 
 ### **5. Resolver conflictos (si es que hay)**
