@@ -15,12 +15,12 @@ Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de 
 
 * Contiene únicamente código que se haya aprobado.
 * Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
-* En esta rama se mergea el codigo de las ramas `features`.
+* En esta rama se mergea el codigo de las ramas personales.
 
 ## Ramas personales (nombre-alumno)
 
-* Contiene únicamente código que estemso muy muy seguros de que funka.
-* Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
+* Contiene codigo de la rama superior develop, además del código que hayamos implemento en las features.
+* Esta rama se mergea en la develop.
 
 Ejemplos:
 
@@ -32,6 +32,7 @@ Ejemplos:
 
 Estas ramas nacen de nuestras ramas personales.
 Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
+Estas ramas se mergean en la rama personal.
 No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
 
 Ejemplos:
