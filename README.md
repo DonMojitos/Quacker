@@ -66,12 +66,12 @@ git push -u origin feature/nombre-de-la-feature
 
 ### **4. Crear una Pull Request**
 
-* Desde GitHub, abre una pull request desde tu rama hacia `main`.
+* Desde GitHub, abre una pull request desde tu rama hacia `develop`.
 * Esperar la aprobación de alguien más, mejor evitar historias raras y perdidas de tiempo.
 
 ### **5. Resolver conflictos (si es que hay)**
 
-Antes de hacer merge, actualiza tu rama con lo último de `main`:
+Antes de hacer merge, actualiza tu rama con lo último de `develop`:
 
 ```bash
 git fetch
@@ -86,7 +86,7 @@ Solo se hace **cuando la pull request esté revisado y aprobado**.
 
 ### **7. Merge a `main`**
 
-Solo se hace **el codigo sepamos que funka chido**.
+Solo se hace **el código sepamos que funka chido**.
 
 ## **Cosas a tener en cuenta para trabajar rápida y cómodamente**
 
