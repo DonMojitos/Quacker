@@ -2,6 +2,8 @@
 
 Quacker es una aplicación estilo Twitter creada para la asignatura de entorno servidor en DAW 25/26.
 
+Para poder hacer uso del proyecto crea en /database -> database.sqlite
+
 Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de trabajo:
 
 ## La rama main
