@@ -30,10 +30,10 @@ Ejemplos:
 
 ## Ramas de características (feature/*)
 
-Estas ramas nacen de nuestras ramas personales.
-Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
-Estas ramas se mergean en la rama personal.
-No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
+* Estas ramas nacen de nuestras ramas personales.
+* Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
+* Estas ramas se mergean en la rama personal.
+* No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
 
 Ejemplos:
 
