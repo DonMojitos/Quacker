@@ -86,7 +86,7 @@ Solo se hace **cuando la pull request esté revisado y aprobado**.
 
 ### **7. Merge a `main`**
 
-Solo se hace **el codigo sepamos que funka chido**.
+Solo se hace **el código sepamos que funka chido**.
 
 ## **Cosas a tener en cuenta para trabajar rápida y cómodamente**
 
