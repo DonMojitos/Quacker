@@ -50,7 +50,7 @@ Ejemplos:
 
     ``` bash
     git clone git@github.com:DonMojitos/Quacker.git
-    cd carpeta-del-proyecto
+    cd Quacker
     ```
 
 2.  **Instalar dependencias de PHP**
