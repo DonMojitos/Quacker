@@ -2,11 +2,13 @@
 
 Quacker es una aplicación estilo Twitter creada para la asignatura de entorno servidor en DAW 25/26.
 
+Para poder hacer uso del proyecto crea en /database -> database.sqlite
+
 Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de trabajo:
 
 ## La rama main
 
-* Contiene únicamente código que se haya aprobado.
+* En principio, se deja quitecica.
 * La dejo bloqueada para evitar "pushes" directos, como un por si acaso.
 * Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
 * De la unica rama que se mergea a main es `develop`.
@@ -14,13 +16,14 @@ Para mantener la rama `main` limpia recomiendo que usemos el siguiente flujo de 
 ## La rama develop
 
 * Contiene únicamente código que se haya aprobado.
-* Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
-* En esta rama se mergea el codigo de las ramas `features`.
+* Solo recibe cambios mediante que se haya resuelto los conflictos en las ramas individuales.
+* El codigo se mergea mediante **Pull Requests revisados por nosotros**
 
 ## Ramas personales (nombre-alumno)
 
-* Contiene únicamente código que estemso muy muy seguros de que funka.
-* Solo recibe cambios mediante **Pull Requests revisados por nosotros**.
+* Esta rama se mergea en la develop.
+* Contiene codigo de la rama develop, además del código que hayamos implementado en las features.
+* Tienen que estar actualizadas, después de terminar una feature, con la rama individual más actualizada.
 
 Ejemplos:
 
@@ -30,9 +33,10 @@ Ejemplos:
 
 ## Ramas de características (feature/*)
 
-Estas ramas nacen de nuestras ramas personales.
-Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
-No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
+* Estas ramas nacen de nuestras ramas personales.
+* Cada nueva funcionalidad se desarrolla, idealmente, en una rama independiente.
+* Estas ramas se mergean en la rama personal.
+* No es obligatorio pero así nos vamos a ahorrar mareos de cabeza.
 
 Ejemplos:
 
