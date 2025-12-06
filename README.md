@@ -25,19 +25,15 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
 4.  **Crear tu archivo `.env`** Copia el de ejemplo:
 
-    Cambiale el nombre de .env.example a .env y configura:
-
-    -   Base de datos (local)
-    -   APP_URL
-    -   Claves, tokens, etc.
-
-5.  **Generar la clave de la app**
+    Cambia el nombre de `.env.example` a `.env`.
+    
+6.  **Generar la clave de la app**
 
     ``` bash
     php artisan key:generate
     ```
 
-6.  **Configurar base de datos** La base **no se incluye** en el
+7.  **Configurar base de datos** La base **no se incluye** en el
     repositorio. Cada desarrollador puede usar:
 
     ``` bash
@@ -49,13 +45,13 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
         DB_CONNECTION=sqlite
         DB_DATABASE=/ruta/absoluta/database.sqlite
 
-7.  **Ejecutar migraciones**
+8.  **Ejecutar migraciones**
 
     ``` bash
     php artisan migrate
     ```
 
-8.  **Levantar el servidor**
+9.  **Levantar el servidor**
 
      ``` bash
     composer run dev
@@ -66,7 +62,7 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     php artisan serve
     ```
 
-9.  **Compilar assets (si aplica)**
+10.  **Compilar assets (si aplica)**
 
     ``` bash
     npm run dev
