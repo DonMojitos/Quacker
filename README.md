@@ -92,10 +92,72 @@ Solo se hace **cuando la pull request esté revisado y aprobado**.
 
 Solo se hace **el código sepamos que funka chido**.
 
-## **Cosas a tener en cuenta para trabajar rápida y cómodamente**
+## Guía de Despliegue
 
-* Hacer pull request pequeños para evitar tener que resolver muchos conflictos.
-* Revisar pull requests del resto y **preguntar si hay dudas**.
-* Usar nombres claros principalmente en ramas, los commits que se entiendan a poder ser.
+1.  **Clonar el repositorio**
 
-Fin README.
+    ``` bash
+    git clone git@github.com:DonMojitos/Quacker.git
+    cd carpeta-del-proyecto
+    ```
+
+2.  **Instalar dependencias de PHP**
+
+    ``` bash
+    composer install
+    ```
+
+3.  **Instalar dependencias de Node**
+
+    ``` bash
+    npm install
+    ```
+
+4.  **Crear tu archivo `.env`** Copia el de ejemplo:
+
+    Cambiale el nombre de .env.example a .env y configura:
+
+    -   Base de datos (local)
+    -   APP_URL
+    -   Claves, tokens, etc.
+
+5.  **Generar la clave de la app**
+
+    ``` bash
+    php artisan key:generate
+    ```
+
+6.  **Configurar base de datos** La base **no se incluye** en el
+    repositorio. Cada desarrollador puede usar:
+
+    ``` bash
+    touch database/database.sqlite
+    ```
+
+    Y en `.env`:
+
+        DB_CONNECTION=sqlite
+        DB_DATABASE=/ruta/absoluta/database.sqlite
+
+7.  **Ejecutar migraciones**
+
+    ``` bash
+    php artisan migrate
+    ```
+
+8.  **Levantar el servidor**
+
+     ``` bash
+    composer run dev
+    ```
+    o si falla ese comando:
+
+    ``` bash
+    php artisan serve
+    ```
+
+9.  **Compilar assets (si aplica)**
+
+    ``` bash
+    npm run dev
+    ```
