@@ -53,7 +53,7 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
 9.  **Levantar el servidor**
 
-     ``` bash
+    ``` bash
     composer run dev
     ```
     o si falla ese comando:
