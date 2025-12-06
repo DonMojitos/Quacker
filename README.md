@@ -61,9 +61,3 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     ``` bash
     php artisan serve
     ```
-
-10.  **Compilar assets (si aplica)**
-
-    ``` bash
-    npm run dev
-    ```
