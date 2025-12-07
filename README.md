@@ -38,25 +38,21 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
     ``` bash
     touch database/database.sqlite
-    ```
+    ```    
 
-    Y en `.env`:
-
-        DB_CONNECTION=sqlite
-        DB_DATABASE=/ruta/absoluta/database.sqlite
-
-7.  **Ejecutar migraciones**
+8.  **Ejecutar migraciones**
 
     ``` bash
     php artisan migrate
+    php artisan migrate:refresh --seed
     ```
 
-8.  **Levantar el servidor**
+9.  **Levantar el servidor**
 
     ``` bash
     composer run dev
     ```
-    o si falla ese comando:
+    En caso de que falle ese comando:
 
     ``` bash
     php artisan serve
