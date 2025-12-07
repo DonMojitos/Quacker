@@ -26,14 +26,6 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 4.  **Crear tu archivo `.env`** Copia el de ejemplo:
 
     Cambia el nombre de `.env.example` a `.env`.
-
-    **Solo si te da un Database\QueryException**:
-    En tu archivo `.env` la línea `SESSION_DRIVER` tendrá el valor de `database`.
-    Esto da un problwma porque busca una tabla en la BBDD llamada 'sessions'.
-    La única forma que he visto para arreglarlo es darle este valor a `SESSION_DRIVER`: 
-    ``` bash
-    SESSION_DRIVER=file
-    ```
     
 6.  **Generar la clave de la app**
 
@@ -64,4 +56,13 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
     ``` bash
     php artisan serve
+    ```
+## Problema con Database\QueryException
+    En el caso de que te de este problema (que muy probablemente te va a pasar porque derrepente da este fallo).
+    En tu archivo `.env` la línea `SESSION_DRIVER` tiene el valor de `database`.
+    Esto da un problema porque busca una tabla en la BBDD llamada 'sessions'.
+    La única forma que he visto para arreglarlo esto es darle el siguiente valor a `SESSION_DRIVER`:
+   
+    ``` bash
+    SESSION_DRIVER=file
     ```
