@@ -72,8 +72,7 @@ Es porque en tu archivo `.env` el valor:
 hace que Laravel busque una tabla llamada `sessions` en la base de
 datos.
 
-Si no tienes esa tabla o no quieres usar sesiones basadas en base de
-datos, cámbialo por:
+La única solución que he encontrado es cámbiarlo por:
 
     SESSION_DRIVER=file
 
