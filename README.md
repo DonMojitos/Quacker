@@ -27,8 +27,10 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
     Cambia el nombre de `.env.example` a `.env`.
 
-    **Solo si te da problemas de sesiones**:
-    En tu archivo `.env` esta linea esatrá probablemente como `SESSION_DRIVER=file`, cambiala a esto:
+    **Solo si te da un Database\QueryException**:
+    En tu archivo `.env` la línea `SESSION_DRIVER` tendrá el valor de `database`.
+    Esto da un problwma porque busca una tabla en la BBDD llamada 'sessions'.
+    La única forma que he visto para arreglarlo es darle este valor a `SESSION_DRIVER`: 
     ``` bash
     SESSION_DRIVER=file
     ```
