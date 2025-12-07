@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('quacks', function (Blueprint $table) {
             $table->id();
-            $table->text('usuario');//será modificado con las relaciones
+            $table->text('usuario'); //será modificado con las relaciones
             $table->text('contenido');
             $table->timestamps();
         });
