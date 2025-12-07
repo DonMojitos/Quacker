@@ -27,27 +27,27 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
     Cambia el nombre de `.env.example` a `.env`.
     
-6.  **Generar la clave de la app**
+5.  **Generar la clave de la app**
 
     ``` bash
     php artisan key:generate
     ```
 
-7.  **Configurar base de datos** La base **no se incluye** en el
+6.  **Configurar base de datos** La base **no se incluye** en el
     repositorio. Cada desarrollador puede usar:
 
     ``` bash
     touch database/database.sqlite
     ```    
 
-8.  **Ejecutar migraciones**
+7.  **Ejecutar migraciones**
 
     ``` bash
     php artisan migrate
     php artisan migrate:refresh --seed
     ```
 
-9.  **Levantar el servidor**
+8.  **Levantar el servidor**
 
     ``` bash
     composer run dev
@@ -57,12 +57,14 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     ``` bash
     php artisan serve
     ```
+    
 ## Problema con Database\QueryException
+
     En el caso de que te de este problema (que muy probablemente te va a pasar porque derrepente da este fallo).
     En tu archivo `.env` la línea `SESSION_DRIVER` tiene el valor de `database`.
     Esto da un problema porque busca una tabla en la BBDD llamada 'sessions'.
     La única forma que he visto para arreglarlo esto es darle el siguiente valor a `SESSION_DRIVER`:
-   
+
     ``` bash
     SESSION_DRIVER=file
     ```
