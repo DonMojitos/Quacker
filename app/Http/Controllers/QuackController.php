@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quack;
 use Illuminate\Http\Request;
 
-class QuacksController extends Controller
+class QuackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,29 +38,28 @@ class QuacksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Quack $quack)
     {
         return view("quacks.show",[
-           'quack' => Quack::find($id)->latest()
+           'quack' =>$quack
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Quack $quack)
     {
         return view("quacks.edit",[
-            'quack'=>Quack::find($id)
+            'quack'=>$quack
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Quack $quack)
     {
-        $quack = Quack::find($id);
         $quack->update($request->all());
         return redirect('/quacks');
     }
@@ -68,9 +67,9 @@ class QuacksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Quack $quack)
     {
-        Quack::destroy($id);
+        $quack->delete();
         return redirect("/quacks");
     }
 }
