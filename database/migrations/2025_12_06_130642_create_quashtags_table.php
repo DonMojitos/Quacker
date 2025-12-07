@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('quashtags', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('nombre', 250)->unique();
             $table->timestamps();
         });
     }

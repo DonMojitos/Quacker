@@ -10,5 +10,5 @@ class Quashtag extends Model
     /** @use HasFactory<\Database\Factories\QuashtagFactory> */
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['nombre'];
 }

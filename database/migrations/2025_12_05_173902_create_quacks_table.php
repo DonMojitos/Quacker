@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('quacks', function (Blueprint $table) {
             $table->id();
-            $table->text('usuario');
+            $table->text('usuario');//será modificado con las relaciones
             $table->text('contenido');
             $table->timestamps();
         });

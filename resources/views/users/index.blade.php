@@ -4,7 +4,7 @@
 <body>
     <h1>Usuarios Quacker</h1>
     <a href="/users/create">Crear Nuevo Usuario</a>
-    <table border="1">
+    <table>
         <tr>
             <th>Nombre</th>
             <th>Usuario</th>

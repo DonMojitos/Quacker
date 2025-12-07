@@ -15,7 +15,7 @@
 		@foreach($quashtags as $quashtag)
 			<tr>
 				<td>{{ $quashtag->id }}</td>
-				<td>{{ $quashtag->name }}</td>
+				<td>{{ $quashtag->nombre }}</td>
 				<td><a href="/quashtags/{{ $quashtag->id }}">Ver detalles</a></td>
 				<td><a href="/quashtags/{{ $quashtag->id }}/edit">Editar</a></td>
 				<td>
