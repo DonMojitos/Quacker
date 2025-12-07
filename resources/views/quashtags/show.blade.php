@@ -13,7 +13,7 @@
 		</tr>
         <tr>
             <td>{{ $quashtag->id }}</td>
-            <td>{{ $quashtag->name }}</td>
+            <td>{{ $quashtag->nombre }}</td>
         </tr>
 	</table>
 </body>

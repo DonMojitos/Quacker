@@ -8,8 +8,8 @@
 <body>
     <form action="/quashtags" method="POST">
         @csrf
-        <label for="name">Nombre del quashtag:</label>
-        <input type="text" id="name" name="name" value="#" required>
+        <label for="nombre">Nombre del quashtag:</label>
+        <input type="text" id="nombre" name="nombre" value="#" required>
         <br>
         <br>
         <input type="submit" value="Crear quashtag">

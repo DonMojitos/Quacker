@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Quashtag>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Quack>
  */
-class QuashtagFactory extends Factory
+class QuackFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,8 @@ class QuashtagFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => '#' . fake()->unique()->word(),
+            'usuario' => fake()->name(),
+            'contenido' => fake()->paragraph(),
         ];
     }
 }

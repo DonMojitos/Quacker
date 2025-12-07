@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quashtags', function (Blueprint $table) {
+        Schema::create('quacks', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 250)->unique();
+            $table->text('usuario');//será modificado con las relaciones
+            $table->text('contenido');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quashtags');
+        Schema::dropIfExists('quacks');
     }
 };
