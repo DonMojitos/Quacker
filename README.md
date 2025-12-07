@@ -26,14 +26,20 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 4.  **Crear tu archivo `.env`** Copia el de ejemplo:
 
     Cambia el nombre de `.env.example` a `.env`.
+
+    **Solo si te da problemas de sesiones**:
+    En tu archivo `.env` esta linea esatrá probablemente como `SESSION_DRIVER=file`, cambiala a esto:
+    ``` bash
+    SESSION_DRIVER=file
+    ```
     
-5.  **Generar la clave de la app**
+6.  **Generar la clave de la app**
 
     ``` bash
     php artisan key:generate
     ```
 
-6.  **Configurar base de datos** La base **no se incluye** en el
+7.  **Configurar base de datos** La base **no se incluye** en el
     repositorio. Cada desarrollador puede usar:
 
     ``` bash
