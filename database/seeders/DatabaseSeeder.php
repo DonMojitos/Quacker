@@ -4,23 +4,20 @@ namespace Database\Seeders;
 
 use App\Models\Quashtag;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
+
         Quashtag::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Creamos 10 usuarios aleatorios usando tu fábrica
+        // (La fábrica ya sabe que tiene que usar 'nombre' y 'usuario')
+        User::factory(10)->create();
     }
 }
