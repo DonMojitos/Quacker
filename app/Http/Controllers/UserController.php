@@ -23,13 +23,6 @@ class UserController extends Controller
     // guardar en BBDD
     public function store(Request $request)
     {
-        // validamos que no metan datos vacíos
-        $request->validate([
-            'nombre' => 'required|max:50',
-            'usuario' => 'required|unique:users|max:50',
-            'email' => 'required|unique:users|max:120|email',
-        ]);
-
         User::create($request->all());
         return redirect('/users');
     }
