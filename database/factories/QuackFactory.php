@@ -19,6 +19,7 @@ class QuackFactory extends Factory
         return [
             'usuario' => fake()->name(),
             'contenido' => fake()->paragraph(),
+            
         ];
     }
 }
