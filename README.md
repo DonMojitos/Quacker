@@ -26,36 +26,28 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 4.  **Crear tu archivo `.env`** Copia el de ejemplo:
 
     Cambia el nombre de `.env.example` a `.env`.
-
-    **Solo si te da un Database\QueryException**:
-    En tu archivo `.env` la línea `SESSION_DRIVER` tendrá el valor de `database`.
-    Esto da un problwma porque busca una tabla en la BBDD llamada 'sessions'.
-    La única forma que he visto para arreglarlo es darle este valor a `SESSION_DRIVER`: 
-    ``` bash
-    SESSION_DRIVER=file
-    ```
     
-6.  **Generar la clave de la app**
+5.  **Generar la clave de la app**
 
     ``` bash
     php artisan key:generate
     ```
 
-7.  **Configurar base de datos** La base **no se incluye** en el
+6.  **Configurar base de datos** La base **no se incluye** en el
     repositorio. Cada desarrollador puede usar:
 
     ``` bash
     touch database/database.sqlite
     ```    
 
-8.  **Ejecutar migraciones**
+7.  **Ejecutar migraciones**
 
     ``` bash
     php artisan migrate
     php artisan migrate:refresh --seed
     ```
 
-9.  **Levantar el servidor**
+8.  **Levantar el servidor**
 
     ``` bash
     composer run dev
@@ -65,3 +57,24 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     ``` bash
     php artisan serve
     ```
+    
+## Problema con `Database\QueryException`
+
+Si aparece un error similar a este (y probablemente te va a aparecer porque de repente lo está haciendo):
+
+    SQLSTATE[HY000]: General error: 1 no such table: sessions
+    (Connection: sqlite, SQL: select * from "sessions" where ...)
+
+Es porque en tu archivo `.env` el valor:
+
+    SESSION_DRIVER=database
+
+hace que Laravel busque una tabla llamada `sessions` en la base de
+datos.
+
+La única solución que he encontrado es cámbiarlo por:
+
+    SESSION_DRIVER=file
+
+Con esto Laravel usará archivos para gestionar las sesiones y el error
+desaparecerá.
