@@ -11,21 +11,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //tabla 'users' tal cual se definió en el Hito 1
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // id (INT, AI, PK) 
-            
-            // "nombre": VARCHAR(50), NOT NULL 
-            $table->string('nombre', 50); 
-            
-            // "usuario": VARCHAR(50), NOT NULL, UNIQUE 
-            $table->string('usuario', 50)->unique(); 
-            
-            // "email": VARCHAR(120), NOT NULL, UNIQUE 
-            $table->string('email', 120)->unique(); 
-            
-            // created_at y updated_at 
-            $table->timestamps(); 
+            $table->id();
+            $table->string('name', 50);
+            $table->string('usuario', 50)->unique();
+            $table->string('email',120)->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
         });
     }
 
@@ -35,5 +44,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('sessions');
     }
 };
