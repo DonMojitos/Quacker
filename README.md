@@ -4,7 +4,7 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
 ## Guía de Despliegue
 
-1.  **Clonar el repositorio**
+1.  **Clona el repositorio o descarga la release**
 
     ``` bash
     git clone git@github.com:DonMojitos/Quacker.git
