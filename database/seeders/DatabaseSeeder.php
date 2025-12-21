@@ -6,6 +6,7 @@ use App\Models\Quack;
 use App\Models\Quashtag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::create([
+            'name' => 'ignacio',
+            'usuario' => 'profemolon',
+            'email' => 'ignacio@profe.com',
+            'password' => Hash::make('ignacio'),
+        ]);
+
         $users = User::factory(10)->create();
         $quacks = Quack::factory(100)->create();
         $quashtags = Quashtag::factory(40)->create();
@@ -22,11 +30,6 @@ class DatabaseSeeder extends Seeder
             $quavsAleatorios = $users->random(5);
             $requacksAleatorios = $users->random(rand(0,5));
             $quashtagsAleatorios = $quashtags->random(2);
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> develop
             $comentarios = $users->random(rand(0,3));
 
             $quack->usersRequacked()->attach($requacksAleatorios);

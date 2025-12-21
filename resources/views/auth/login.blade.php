@@ -25,5 +25,6 @@
             <p style="color: red">{{ $message }}</p>
         @enderror
     </form>
+    <a href="users/create">Regístrate</a>
 </body>
 </html>
