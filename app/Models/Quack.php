@@ -12,11 +12,7 @@ class Quack extends Model
 
     protected $fillable = ['contenido'];
 
-<<<<<<< HEAD
-     public function user() {
-=======
     public function user() {
->>>>>>> develop
         return $this->belongsTo(User::class);
     }
 
