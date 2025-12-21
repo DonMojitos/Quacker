@@ -60,9 +60,9 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
 
 9.  **Credenciales de usuario**
 
-   Email:
+    Email:
 
-   ``` bash
+    ``` bash
     ignacio@profe.com
     ```
 
