@@ -14,11 +14,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $users = User::factory(10)->create();
+        $quacks = Quack::factory(100)->create();
+        $quashtags = Quashtag::factory(40)->create();
 
-        Quashtag::factory(10)->create();
-        Quack::factory(10)->create();
-        // Creamos 10 usuarios aleatorios usando tu fábrica
-        // (La fábrica ya sabe que tiene que usar 'nombre' y 'usuario')
-        User::factory(10)->create();
+        foreach ($quacks as $quack) {
+            $quavsAleatorios = $users->random(5);
+            $requacksAleatorios = $users->random(rand(0,5));
+            $quashtagsAleatorios = $quashtags->random(2);
+
+            $comentarios = $users->random(rand(0,3));
+
+            $quack->usersRequacked()->attach($requacksAleatorios);
+            $quack->usersQuaved()->attach($quavsAleatorios);
+            $quack->quashtags()->attach($quashtagsAleatorios);
+
+            foreach($comentarios as $user){
+                $user->quacksComentados()->attach($quack->id, [
+                    'contenido' => fake()->sentence()
+                ]);
+            }
+        }
+
+        foreach ($users as $user) {
+            $seguidoresAleatorios = $users->where('id', '!=', $user->id)->random(rand(0,5));
+            $user->siguiendo()->attach($seguidoresAleatorios);
+        }
     }
 }

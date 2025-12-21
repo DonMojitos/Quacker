@@ -13,6 +13,10 @@
     }
 </style>
 <body>
+    @auth
+        <h1>Hola {{ Auth::user()->name }}</h1>
+        <p><a href="/logout">Cerrar sesión</a></p>
+    @endauth
     <div class="quackea">
         <p><a href="/quacks/create">🦆 Crear Quack</a></p>
     </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Quack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class QuackController extends Controller
 {
@@ -50,6 +52,8 @@ class QuackController extends Controller
      */
     public function edit(Quack $quack)
     {
+        Gate::authorize('edit-oferta', $quack);
+
         return view("quacks.edit",[
             'quack'=>$quack
         ]);
