@@ -13,13 +13,17 @@
     }
 </style>
 <body>
+    @auth
+        <h1>Hola {{ Auth::user()->name }}</h1>
+        <p><a href="/logout">Cerrar sesión</a></p>
+    @endauth
     <div class="quackea">
         <p><a href="/quacks/create">🦆 Crear Quack</a></p>
     </div>
     <main>
         @foreach ($quacks as $quack)
             <article>
-                <h3>{{ $quack->usuario }} ({{ $quack->created_at }})</h3>
+                <h3>{{ $quack->user->name }} ({{ $quack->created_at }})</h3>
                 <p>{{ $quack->contenido }}</p>
                 <p><a href="/quacks/{{ $quack->id }}">Ver más detalles</a></p>
                 <form action="/quacks/{{ $quack->id }}" method="POST">

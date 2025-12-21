@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Quack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class QuackController extends Controller
 {
@@ -31,7 +33,16 @@ class QuackController extends Controller
      */
     public function store(Request $request)
     {
-        Quack::create($request->all());
+        //Quack::create($request->all()); este no pasa el user_id
+        // Quack::make([
+        //     'contenido' => $request->contenido,
+        //     'user_id' => Auth::id()
+        // ]); Aqui si q pasa el user_id pero se supone q es más inseguro por tener q aviltiarlo en el model como $fillable
+        $quack = new Quack();
+        $quack->contenido = $request->contenido;
+        $quack->user_id = Auth::id();
+        $quack->save();
+
         return redirect("/quacks") ;
     }
 
@@ -50,6 +61,8 @@ class QuackController extends Controller
      */
     public function edit(Quack $quack)
     {
+        Gate::authorize('edit', $quack);
+
         return view("quacks.edit",[
             'quack'=>$quack
         ]);
