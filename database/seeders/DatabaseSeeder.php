@@ -22,7 +22,11 @@ class DatabaseSeeder extends Seeder
             $quavsAleatorios = $users->random(5);
             $requacksAleatorios = $users->random(rand(0,5));
             $quashtagsAleatorios = $quashtags->random(2);
+<<<<<<< HEAD
+
+=======
             
+>>>>>>> develop
             $comentarios = $users->random(rand(0,3));
 
             $quack->usersRequacked()->attach($requacksAleatorios);
