@@ -16,8 +16,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
-    public function quacks() {
+     public function quacks() {
         return $this->hasMany(Quack::class);
     }
 

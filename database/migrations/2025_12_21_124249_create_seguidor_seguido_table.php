@@ -31,7 +31,6 @@ return new class extends Migration
         //     $table->foreignIdFor(User::class, 'seguido_id')->constrained()->onDelete('cascade');
         //     $table->unique(['seguidor_id','seguido_id']);
         //     //$table->check('seguidor_id <> seguido_id'); Se supone que no funciona porque Method Illuminate\Database\Schema\Blueprint::check does not exist
-            
         //     $table->timestamps();
         // });
     }
