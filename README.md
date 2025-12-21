@@ -58,23 +58,13 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     php artisan serve
     ```
     
-## Problema con `Database\QueryException`
+## Credenciales de `usuario`
 
-Si aparece un error similar a este (y probablemente te va a aparecer porque de repente lo está haciendo):
-
-    SQLSTATE[HY000]: General error: 1 no such table: sessions
-    (Connection: sqlite, SQL: select * from "sessions" where ...)
-
-Es porque en tu archivo `.env` el valor:
-
-    SESSION_DRIVER=database
-
-hace que Laravel busque una tabla llamada `sessions` en la base de
-datos.
-
-La única solución que he encontrado es cámbiarlo por:
-
-    SESSION_DRIVER=file
-
-Con esto Laravel usará archivos para gestionar las sesiones y el error
-desaparecerá.
+    Email:
+    ``` bash
+    ignacio@profe.com
+    ``` 
+    Password:
+    ``` bash
+    ignacio
+    ```
