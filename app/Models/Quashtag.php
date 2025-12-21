@@ -11,4 +11,8 @@ class Quashtag extends Model
     use HasFactory;
 
     protected $fillable = ['nombre'];
+
+    public function quacks() {
+        return $this->belongsToMany(Quack::class)->withTimestamps();
+    }
 }

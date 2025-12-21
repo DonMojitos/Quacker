@@ -10,6 +10,25 @@ class Quack extends Model
     /** @use HasFactory<\Database\Factories\QuackFactory> */
     use HasFactory;
 
-    protected $fillable = ['contenido', 'usuario'];
+    protected $fillable = ['contenido'];
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function usersQuaved() {
+        return $this->belongsToMany(User::class, 'quavs')->withTimestamps();
+    }
+
+    public function usersRequacked() {
+        return $this->belongsToMany(User::class, 'requacks')->withTimestamps();
+    }
+
+    public function quashtags() {
+        return $this->belongsToMany(Quashtag::class)->withTimestamps();
+    }
+
+    public function comentarios() {
+        return $this->belongsToMany(User::class)->withPivot('contenido')->withTimestamps();
+    }
 }

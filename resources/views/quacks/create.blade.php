@@ -9,8 +9,6 @@
 <body>
     <form action="/quacks" method="post">
         @csrf
-        <label for="usuario">Nombre de usuario:</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
 
         <label for="contenido">Quack:</label><br>
         <textarea id="contenido" name="contenido" rows="4" cols="50" required></textarea><br><br>
