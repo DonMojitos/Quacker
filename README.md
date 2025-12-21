@@ -55,11 +55,19 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     En caso de que falle ese comando:
 
     ``` bash
-    php artisan serve
+    ignacio@profe.com
     ```
-    
-## Credenciales de usuario.
 
-    **Email:** ignacio@profe.com
-    
-    **Password:** ignacio
+9.  **Credenciales de usuario**
+
+   Email:
+
+   ``` bash
+    ignacio@profe.com
+    ```
+    Password:
+
+    ``` bash
+    ignacio
+    ```
+
