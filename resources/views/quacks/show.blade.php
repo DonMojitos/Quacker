@@ -9,7 +9,7 @@
 <body>
     <main>
         <article>
-            <h3>{{ $quack->usuario }} ({{ $quack->created_at }})</h3>
+            <h3>{{ $quack->user_id->user }} ({{ $quack->created_at }})</h3>
             <p>{{ $quack->contenido }}</p>
             <p><a href="/quacks">Volver</a></p>
         </article>
