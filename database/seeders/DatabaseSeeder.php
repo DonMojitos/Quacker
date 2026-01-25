@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $users = User::factory(10)->create();
-        $quacks = Quack::factory(100)->create();
+        $quacks = Quack::factory(100)->create()->sortBy('created_at');
         $quashtags = Quashtag::factory(40)->create();
 
         foreach ($quacks as $quack) {
