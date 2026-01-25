@@ -16,7 +16,7 @@ class QuackController extends Controller
     {
         $quacks = Quack::all();
         return view("quacks.index",[
-            "quacks"=> $quacks
+            "quacks"=> $quacks->sortByDesc('created_at')
         ]);
     }
 

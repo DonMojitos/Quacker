@@ -16,6 +16,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    protected function casts(): array{
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
      public function quacks() {
         return $this->hasMany(Quack::class);
     }

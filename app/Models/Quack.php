@@ -29,6 +29,6 @@ class Quack extends Model
     }
 
     public function comentarios() {
-        return $this->belongsToMany(User::class)->withPivot('contenido')->withTimestamps();
+        return $this->belongsToMany(User::class, 'comentarios')->withPivot('contenido')->withTimestamps();
     }
 }
