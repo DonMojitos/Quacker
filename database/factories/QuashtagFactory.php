@@ -17,7 +17,7 @@ class QuashtagFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => '#' . fake()->unique()->word(),
+            'nombre' => fake()->unique()->word(),
         ];
     }
 }

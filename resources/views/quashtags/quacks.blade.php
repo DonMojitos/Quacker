@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Feed</title>
-    <link rel="stylesheet" href="{{ asset('css/quack.css') }}">
+    <title>Quashtags</title>
+    <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 </head>
 <body>
     <nav class="navegacion">
         <a href="/users/{{ Auth::user()->id }}" ><div class="foto-personal"></div></a>
-        @if ( request()->path() == 'feed')
-            <h1>{{Auth::user()->usuario}}</h1>
-        @else
-            <h1><a href="/feed">Ir a tu feed</a></h1>
-        @endif
+        <h1><a href="/feed">Ir a tu feed</a></h1>
         <p><a id="logout"  href="/logout"><span class="material-symbols-outlined">logout</span></a></p>
     </nav>
     <hr>
     <main class="contenedor">
-        <article class="quack">
+         <div class="quackea">
+            <form action="/quacks" method="post">
+                @csrf
+                <div class="escribir">
+                    <a href="/users/{{ Auth::user()->id }}"><div class="foto"></div></a>
+                    <input type="text" id="contenido" placeholder="¿Qué vas a quackear?" name="contenido" required>
+                </div>
+                <div id="enviarQuack">
+                    <input type="submit" value="Quack!">
+                </div>
+            </form>
+        </div>
+        <hr>
+        @foreach ($quacks as $quack)
+            <article class="quack">
                 <a href="/users/{{ $quack->user->id }}"><div class="foto"></div></a>
                 <div>
                     <div class="contenido">
@@ -58,6 +68,8 @@
                                 <button type="submit">♡ {{ $quack->usersQuaved->count() }}</button>
                             @endif
                         </form>
+                        
+                        <p><a class="zoom" href="/quacks/{{ $quack->id }}"><span class="material-symbols-outlined">zoom_out_map</span></a></p>
                         @can('edit', $quack)
                             <form action="/quacks/{{ $quack->id }}" method="POST">
                                 @csrf
@@ -70,6 +82,6 @@
                 </div>
             </article>
             <hr>
+        @endforeach
     </main>
-</body>
 </html>

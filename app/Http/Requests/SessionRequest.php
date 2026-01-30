@@ -29,10 +29,10 @@ class SessionRequest extends FormRequest
     }
 
     public function messages(){
-    return [
-        'email.required' => 'El campo email es obligatorio',
-        'email.email' => 'El campo email debe ser un correo electrónico válido',
-        'password.required' => 'La contraseña es obligatoria',
+        return [
+            'email.required' => 'El campo email es obligatorio',
+            'email.email' => 'El campo email debe ser un correo electrónico válido',
+            'password.required' => 'La contraseña es obligatoria',
         ];
     }
 }
