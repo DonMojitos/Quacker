@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $ignacio->siguiendo()->attach($users->random(rand(1,3)));
 
         $quacks = Quack::factory(100)->create();
+
         $quashtags = Quashtag::factory(40)->create();
 
         foreach ($quacks as $quack) {
