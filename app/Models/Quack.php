@@ -17,11 +17,11 @@ class Quack extends Model
     }
 
     public function usersQuaved() {
-        return $this->belongsToMany(User::class, 'quavs')->withTimestamps();
+        return $this->belongsToMany(User::class, 'quavs', 'quack_id', 'user_id')->withTimestamps();
     }
 
     public function usersRequacked() {
-        return $this->belongsToMany(User::class, 'requacks')->withTimestamps();
+        return $this->belongsToMany(User::class, 'requacks', 'quack_id', 'user_id')->withTimestamps();
     }
 
     public function quashtags() {
@@ -29,6 +29,6 @@ class Quack extends Model
     }
 
     public function comentarios() {
-        return $this->belongsToMany(User::class)->withPivot('contenido')->withTimestamps();
+        return $this->belongsToMany(User::class, 'comentarios')->withPivot('contenido')->withTimestamps();
     }
 }

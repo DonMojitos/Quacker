@@ -16,16 +16,24 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    protected function casts(): array{
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
      public function quacks() {
         return $this->hasMany(Quack::class);
     }
 
     public function quacksQuaveados() {
-        return $this->belongsToMany(Quack::class, 'quavs')->withTimestamps();
+        return $this->belongsToMany(Quack::class, 'quavs',  'user_id', 'quack_id')->withTimestamps();
     }
 
     public function quacksRequackeados() {
-        return $this->belongsToMany(Quack::class, 'requacks')->withTimestamps();
+        return $this->belongsToMany(Quack::class, 'requacks', 'user_id', 'quack_id')->withTimestamps();
     }
 
     public function seguidores() {

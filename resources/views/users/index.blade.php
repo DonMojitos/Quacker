@@ -20,7 +20,8 @@
                 <a href="/users/{{ $user->id }}">Ver</a>
                 <a href="/users/{{ $user->id }}/edit">Editar</a>
                 <form action="/users/{{ $user->id }}" method="POST" style="display:inline">
-                    @csrf @method('DELETE')
+                    @csrf 
+                    @method('DELETE')
                     <button type="submit">Borrar</button>
                 </form>
             </td>

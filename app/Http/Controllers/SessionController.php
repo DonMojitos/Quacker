@@ -10,8 +10,17 @@ use Illuminate\Validation\ValidationException;
 class SessionController extends Controller
 {
 
+    public function redirect(){
+        if(Auth::check()){
+            return redirect('/feed');
+        }
+        return redirect('/login');
+    }
+
     public function create(){
+        
         return view ("auth.login");
+
     }
     
     public function store(SessionRequest $request) {
@@ -26,7 +35,7 @@ class SessionController extends Controller
 
         request()->session()->regenerate();
 
-        return redirect ('/quacks');
+        return redirect ('/feed');
     }
     
     public function destroy()

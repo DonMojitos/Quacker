@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('edit', function (User $user, Quack $quack){
-            return $quack->user->is($user);
-        });
+        // Gate::define('edit', function (User $user, Quack $quack){
+        //     return $quack->user->is($user);
+        // });
     }
 }
