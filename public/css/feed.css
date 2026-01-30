@@ -1,0 +1,167 @@
+body{
+    background-color:#15202b;
+    color: white;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+h1 a{
+    color: white;
+    text-decoration: none;
+}
+.contenedor{
+    margin: 0 auto;
+    max-width: 1000px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.navegacion{
+    display: flex;
+    text-align: center;
+    margin: 0 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.foto-personal{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    display: inline-block;
+    cursor: pointer;
+}
+.foto{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: red;
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+.quack{
+    margin: 35px 0;
+    padding: 0 15px;
+    max-width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.contenido{
+    font-size: small;
+}
+.contenido p{
+    margin-top: 2px;
+    font-size: large;
+    display: inline;
+}
+.contenido h2{
+    margin: 0 0 3px 0;
+}
+.contenido a{
+    color: white;
+    font-weight: 900;
+    text-decoration: none;
+    &:visited{
+        color: white;
+    }
+}
+.contenido p a{
+    color: rgb(0, 187, 255);
+    font-weight: normal;
+    text-decoration: none;
+    &:visited{
+        color: rgb(0, 187, 255);
+    }
+}
+.nombreFecha{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nombreFecha p{
+    color: rgba(181, 181, 181, 0.729);
+    margin: 0;
+}
+hr{
+    border-color: rgba(86, 86, 86, 0.605);
+}
+.interacciones{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 40px;
+}
+.interacciones button{
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #15202b;
+}
+.retweet{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.retweet img{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.interacciones p a{
+    color: white;
+}
+.zoom, button span {
+    display: inline-block;
+    padding-top: 6px;
+}
+.escribir{
+    margin: 35px 0 0 0;
+    padding: 0 15px;
+    max-width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.escribir input{
+    width: 100%;
+    outline: none;
+    color: white;
+    border: none;
+    background-color: #15202b;
+    border-radius: 10px;
+    transition: background-color .15s ease-in;
+    &:focus{
+        background-color: #5b84bd4f;
+    }
+    &::placeholder{
+        color: rgba(255, 255, 255, 0.584) ;
+        
+    }
+}
+h2{
+    margin-left: 20px;
+}
+#enviarQuack{
+    display: flex;
+    margin:  20px 35px;
+    justify-content: flex-end;
+}
+#enviarQuack input{
+    color: white;
+    border: none;
+    background-color: rgb(0, 187, 255);
+    cursor: pointer;
+    font-weight: 900;
+    text-transform: capitalize;
+    border-radius: 25px;
+    padding: 10px;
+}
+#logout{
+    color: white;
+}
+#logout span{
+    color: white;
+    font-size: 35px;
+}

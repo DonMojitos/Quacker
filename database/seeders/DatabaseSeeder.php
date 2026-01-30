@@ -15,21 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        $ignacio = User::create([
             'name' => 'ignacio',
-            'usuario' => 'profemolon',
+            'usuario' => 'Rajoy',
             'email' => 'ignacio@profe.com',
             'password' => Hash::make('ignacio'),
         ]);
 
+
         $users = User::factory(10)->create();
+        $ignacio->siguiendo()->attach($users->random(rand(1,3)));
+
         $quacks = Quack::factory(100)->create();
         $quashtags = Quashtag::factory(40)->create();
 
         foreach ($quacks as $quack) {
-            $quavsAleatorios = $users->random(5);
+            $quavsAleatorios = $users->random(rand(0,5));
             $requacksAleatorios = $users->random(rand(0,5));
-            $quashtagsAleatorios = $quashtags->random(2);
+            $quashtagsAleatorios = $quashtags->random(rand(0,2));
             $comentarios = $users->random(rand(0,3));
 
             $quack->usersRequacked()->attach($requacksAleatorios);

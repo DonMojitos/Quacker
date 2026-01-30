@@ -3,12 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quack;
+use App\Models\Quashtag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 
 class QuackController extends Controller
 {
+    public function quavUnquav(Quack $quack){
+        if (Auth::user()->quacksQuaveados()->where('quack_id', $quack->id)->exists()) {
+            Auth::user()->quacksQuaveados()->detach($quack->id);
+        } else {
+            Auth::user()->quacksQuaveados()->attach($quack->id);
+        }
+        return back();
+    }
+
+    public function requackUnrequack(Quack $quack){
+        if (Auth::user()->quacksRequackeados()->where('quack_id', $quack->id)->exists()) {
+            Auth::user()->quacksRequackeados()->detach($quack->id);
+        } else {
+            Auth::user()->quacksRequackeados()->attach($quack->id);
+        }
+        return back();
+    }
+
+    public function feed()
+    {
+        $idsBuscados = Auth::user()->siguiendo()->pluck('users.id');
+        $idUsuario =  Auth::id();
+        $idsBuscados->push($idUsuario);
+        //dd($idsBuscados);
+        return view("quacks.index",[
+            "quacks"=> Quack::with('user')
+                ->whereIn('user_id', $idsBuscados) 
+                ->orderByDesc('created_at')
+                ->get(),
+            "requacks" => Quack::with('usersRequacked')
+                ->join('requacks', 'quacks.id', '=', 'requacks.quack_id')
+                ->whereIn('requacks.user_id', $idsBuscados)
+                ->orderByDesc('requacks.created_at')
+                ->select('quacks.*', 'requacks.created_at as requack_created_at')
+                ->get()
+        ]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -16,7 +53,7 @@ class QuackController extends Controller
     {
         $quacks = Quack::all();
         return view("quacks.index",[
-            "quacks"=> $quacks
+            "quacks"=> $quacks->sortByDesc('created_at')
         ]);
     }
 
@@ -33,17 +70,25 @@ class QuackController extends Controller
      */
     public function store(Request $request)
     {
-        //Quack::create($request->all()); este no pasa el user_id
-        // Quack::make([
-        //     'contenido' => $request->contenido,
-        //     'user_id' => Auth::id()
-        // ]); Aqui si q pasa el user_id pero se supone q es más inseguro por tener q aviltiarlo en el model como $fillable
         $quack = new Quack();
         $quack->contenido = $request->contenido;
         $quack->user_id = Auth::id();
         $quack->save();
 
-        return redirect("/quacks") ;
+        # 1
+        preg_match_all('/#(\w+)/u', $quack->contenido, $matches);
+        $quashtagNames = array_unique($matches[1]);
+        # 2
+        $quashtags = [];
+        foreach ($quashtagNames as $quashtagName) {
+            $quashtags[] = Quashtag::firstOrCreate(['nombre' => $quashtagName]);
+        }
+        # 3
+        if (!empty($quashtags)) {
+            $quack->quashtags()->saveMany($quashtags);
+        }
+
+        return redirect('/feed');
     }
 
     /**
@@ -61,8 +106,6 @@ class QuackController extends Controller
      */
     public function edit(Quack $quack)
     {
-        Gate::authorize('edit', $quack);
-
         return view("quacks.edit",[
             'quack'=>$quack
         ]);
@@ -74,7 +117,7 @@ class QuackController extends Controller
     public function update(Request $request, Quack $quack)
     {
         $quack->update($request->all());
-        return redirect('/quacks');
+        return redirect('/feed');
     }
 
     /**
@@ -83,6 +126,6 @@ class QuackController extends Controller
     public function destroy(Quack $quack)
     {
         $quack->delete();
-        return redirect("/quacks");
+        return redirect("/feed");
     }
 }

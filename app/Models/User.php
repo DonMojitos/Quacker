@@ -21,11 +21,11 @@ class User extends Authenticatable
     }
 
     public function quacksQuaveados() {
-        return $this->belongsToMany(Quack::class, 'quavs')->withTimestamps();
+        return $this->belongsToMany(Quack::class, 'quavs',  'user_id', 'quack_id')->withTimestamps();
     }
 
     public function quacksRequackeados() {
-        return $this->belongsToMany(Quack::class, 'requacks')->withTimestamps();
+        return $this->belongsToMany(Quack::class, 'requacks', 'user_id', 'quack_id')->withTimestamps();
     }
 
     public function seguidores() {

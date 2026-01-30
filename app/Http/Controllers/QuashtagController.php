@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quack;
 use App\Models\Quashtag;
 use Illuminate\Http\Request;
 
 class QuashtagController extends Controller
 {
+
+    public function quacksByQuashtag(Quashtag $quashtag){
+        return view("quashtags.quacks",[
+            'quacks' => $quashtag->quacks()
+            ->orderByDesc('created_at')
+            ->get()
+        ]);
+    }
     /**
      * Display a listing of the resource.
      */
