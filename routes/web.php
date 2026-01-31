@@ -6,10 +6,6 @@ use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
 Route::controller(QuackController::class) ->group(function() {
     Route::get('/feed', 'feed')
     ->name('quacks.feed')
