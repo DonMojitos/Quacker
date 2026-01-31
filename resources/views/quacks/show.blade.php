@@ -22,7 +22,13 @@
     <hr>
     <main class="contenedor">
         <article class="quack">
-                <a href="/users/{{ $quack->user->id }}"><div class="foto"></div></a>
+                <a href="/users/{{ $quack->user->id }}">
+                    @if ($quack->user->id == Auth::user()->id)
+                        <div class="foto-user"></div>
+                    @else
+                        <div class="foto"></div>
+                    @endif
+                </a>
                 <div>
                     <div class="contenido">
                         <div class="nombreFecha">

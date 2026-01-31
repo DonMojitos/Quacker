@@ -21,7 +21,7 @@
             <form action="/quacks" method="post">
                 @csrf
                 <div class="escribir">
-                    <a href="/users/{{ Auth::user()->id }}"><div class="foto"></div></a>
+                    <a href="/users/{{ Auth::user()->id }}"><div class="foto-user"></div></a>
                     <input type="text" id="contenido" placeholder="¿Qué vas a quackear?" name="contenido" required>
                 </div>
                 <div id="enviarQuack">
@@ -32,7 +32,13 @@
         <hr>
         @foreach ($quacks as $quack)
             <article class="quack">
-                <a href="/users/{{ $quack->user->id }}"><div class="foto"></div></a>
+                <a href="/users/{{ $quack->user->id }}">
+                    @if ($quack->user->id == Auth::user()->id)
+                        <div class="foto-user"></div>
+                    @else
+                        <div class="foto"></div>
+                    @endif
+                </a>
                 <div>
                     <div class="contenido">
                         <div class="nombreFecha">
