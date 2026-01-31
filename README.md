@@ -57,4 +57,18 @@ Quacker es una aplicación estilo Twitter creada para la asignatura de entorno s
     ``` bash
     php artisan serve
     ```
-    
+
+9.  **Credenciales de usuario**
+
+    Email:
+
+    ``` bash
+    ignacio@profe.com
+    ```
+
+    Password:
+
+    ``` bash
+    ignacio
+    ```
+
