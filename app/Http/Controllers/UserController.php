@@ -20,19 +20,50 @@ class UserController extends Controller
 
     public function quacksUsuario(User $user)
     {
-        return view("quacks.index",[
-            "quacks"=> Quack::with('user')
-                ->where('user_id', '=' , $user->id) 
-                ->orderByDesc('created_at')
-                ->get(),
-            "requacks" => Quack::with('usersRequacked')
-                ->join('requacks', 'quacks.id', '=', 'requacks.quack_id')
-                ->where('requacks.user_id', '=', $user->id)
-                ->orderByDesc('requacks.created_at')
-                ->select('quacks.*', 'requacks.created_at as requack_created_at')
-                ->get()
+        $quacks = Quack::with([
+            'user',
+            'quashtags',
+            'usersRequacked',
+            'usersQuaved',
+        ])
+            ->where('user_id', $user->id)
+            ->get()
+            ->map(function ($quack) {
+                $quack->tipo = 'quack';
+                $quack->fecha_feed = $quack->created_at;
+
+                return $quack;
+            });
+
+        $requacks = Quack::with([
+            'user',
+            'quashtags',
+            'usersRequacked',
+            'usersQuaved',
+        ])
+            ->join('requacks', 'quacks.id', '=', 'requacks.quack_id')
+            ->where('requacks.user_id', $user->id)
+            ->select(
+                'quacks.*',
+                'requacks.created_at as fecha_feed',
+                'requacks.user_id as requack_user_id'
+            )
+            ->get()
+            ->map(function ($quack) {
+                $quack->tipo = 'requack';
+                $quack->fecha_feed = $quack->fecha_feed;
+                return $quack;
+            });
+        
+        $feed = $quacks
+            ->merge($requacks)
+            ->sortByDesc('fecha_feed')
+            ->values();
+
+        return view('quacks.index', [
+            'feed' => $feed
         ]);
-    }
+     }
     // mostrar lista
     public function index()
     {

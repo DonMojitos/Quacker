@@ -34,11 +34,13 @@
             </form>
         </div>
         <hr>
-        @foreach ($requacks as $requack)
-            <h2>Requack</h2>
+        @foreach ($feed as $mensaje)
+            @if ($mensaje->tipo == 'requack')
+                <h2>Requack</h2>
+            @endif
             <article class="quack">
-                <a href="/users/{{ $requack->user->id }}">
-                    @if ($requack->user->id == Auth::user()->id)
+                <a href="/users/{{ $mensaje->user->id }}">
+                    @if ($mensaje->user->id == Auth::user()->id)
                         <div class="foto-user"></div>
                     @else
                         <div class="foto"></div>
@@ -47,107 +49,47 @@
                 <div>
                     <div class="contenido">
                         <div class="nombreFecha">
-                            <h2><a href="/users/{{ $requack->user->id }}/quacks">{{ $requack->user->name }}</a></h2><p>&#64{{$requack->user->usuario }} · ({{ $requack->created_at->diffForHumans() }})</p>
+                            <h2><a href="/users/{{ $mensaje->user->id }}/quacks">{{ $mensaje->user->name }}</a></h2><p>&#64{{$mensaje->user->usuario }} · ({{ $mensaje->created_at->diffForHumans() }})</p>
                         </div>
-                        <p>{{ $requack->contenido }}</p>
-                        @if (!$requack->quashtags->isEmpty())
-                                @foreach ($requack->quashtags as $quashtag)
+                        <p>{{ $mensaje->contenido }}</p>
+                        @if (!$mensaje->quashtags->isEmpty())
+                                @foreach ($mensaje->quashtags as $quashtag)
                                     <p><a href="/quashtags/{{$quashtag->id}}/quacks">#{{ $quashtag->nombre }}</a></p>
                                 @endforeach
                         @endif
                     </div>
                     <div class="interacciones">
-                        <form action="/quacks/{{ $requack->id }}/requack" method="POST">
+                        <form action="/quacks/{{ $mensaje->id }}/requack" method="POST">
                             @csrf
-                            @if (Auth::user()->quacksRequackeados()->where('quack_id', $requack->id)->exists())
+                            @if (Auth::user()->quacksRequackeados()->where('quack_id', $mensaje->id)->exists())
                                 <label class="retweet">
                                     <img src="{{ asset('img/retweet-fill.png') }}" alt="retweet">
-                                    <button  type="submit">{{ $requack->usersRequacked->count() }}</button>
+                                    <button  type="submit">{{ $mensaje->usersRequacked->count() }}</button>
                                 </label>
                             @else
                                 <label class="retweet">
                                     <img src="{{ asset('img/retweet.png') }}" alt="retweet">
-                                    <button type="submit">{{ $requack->usersRequacked->count() }}</button>
+                                    <button type="submit">{{ $mensaje->usersRequacked->count() }}</button>
                                 </label>
                             @endif
                         </form>
-                        <form action="/quacks/{{ $requack->id }}/quav" method="POST">
+                        <form action="/quacks/{{ $mensaje->id }}/quav" method="POST">
                             @csrf
-                            @if (Auth::user()->quacksQuaveados()->where('quack_id', $requack->id)->exists())
-                                <button type="submit">♥ {{ $requack->usersQuaved->count() }}</button>
+                            @if (Auth::user()->quacksQuaveados()->where('quack_id', $mensaje->id)->exists())
+                                <button type="submit">♥ {{ $mensaje->usersQuaved->count() }}</button>
                             @else
-                                <button type="submit">♡ {{ $requack->usersQuaved->count() }}</button>
+                                <button type="submit">♡ {{ $mensaje->usersQuaved->count() }}</button>
                             @endif
                         </form>
                         
-                        <p><a class="zoom" href="/quacks/{{ $requack->id }}"><span class="material-symbols-outlined">zoom_out_map</span></a></p>
-                        @can('edit', $requack)
-                            <form action="/quacks/{{ $requack->id }}" method="POST">
+                        <p><a class="zoom" href="/quacks/{{ $mensaje->id }}"><span class="material-symbols-outlined">zoom_out_map</span></a></p>
+                        @can('edit', $mensaje)
+                            <form action="/quacks/{{ $mensaje->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button><span class="material-symbols-outlined">delete</span></button>
                             </form>
-                            <p><a class="zoom" href="/quacks/{{ $requack->id }}/edit"><span class="material-symbols-outlined">edit</span></a></p>
-                        @endcan
-                    </div>
-                </div>
-            </article>
-            <hr>
-        @endforeach
-        @foreach ($quacks as $quack)
-            <article class="quack">
-                <a href="/users/{{ $quack->user->id }}">
-                    @if ($quack->user->id == Auth::user()->id)
-                        <div class="foto-user"></div>
-                    @else
-                        <div class="foto"></div>
-                    @endif
-                </a>
-                <div>
-                <div>
-                    <div class="contenido">
-                        <div class="nombreFecha">
-                            <h2><a href="/users/{{ $quack->user->id }}/quacks">{{ $quack->user->name }}</a></h2><p>&#64{{$quack->user->usuario }} · ({{ $quack->created_at->diffForHumans() }})</p>
-                        </div>
-                        <p>{{ $quack->contenido }}</p>
-                        @if (!$quack->quashtags->isEmpty())
-                                @foreach ($quack->quashtags as $quashtag)
-                                    <p><a href="/quashtags/{{$quashtag->id}}/quacks">#{{ $quashtag->nombre }}</a></p>
-                                @endforeach
-                        @endif
-                    </div>
-                    <div class="interacciones">
-                        <form action="/quacks/{{ $quack->id }}/requack" method="POST">
-                            @csrf
-                            @if (Auth::user()->quacksRequackeados()->where('quack_id', $quack->id)->exists())
-                                <label class="retweet">
-                                    <img src="{{ asset('img/retweet-fill.png') }}" alt="retweet">
-                                    <button  type="submit">{{ $quack->usersRequacked->count() }}</button>
-                                </label>
-                            @else
-                                <label class="retweet">
-                                    <img src="{{ asset('img/retweet.png') }}" alt="retweet">
-                                    <button type="submit">{{ $quack->usersRequacked->count() }}</button>
-                                </label>
-                            @endif
-                        </form>
-                        <form action="/quacks/{{ $quack->id }}/quav" method="POST">
-                            @csrf
-                            @if (Auth::user()->quacksQuaveados()->where('quack_id', $quack->id)->exists())
-                                <button type="submit">♥ {{ $quack->usersQuaved->count() }}</button>
-                            @else
-                                <button type="submit">♡ {{ $quack->usersQuaved->count() }}</button>
-                            @endif
-                        </form>
-                        
-                        <p><a class="zoom" href="/quacks/{{ $quack->id }}"><span class="material-symbols-outlined">zoom_out_map</span></a></p>
-                        @can('edit', $quack)
-                            <form action="/quacks/{{ $quack->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button><span class="material-symbols-outlined">delete</span></button>
-                            </form>
-                            <p><a class="zoom" href="/quacks/{{ $quack->id }}/edit"><span class="material-symbols-outlined">edit</span></a></p>
+                            <p><a class="zoom" href="/quacks/{{ $mensaje->id }}/edit"><span class="material-symbols-outlined">edit</span></a></p>
                         @endcan
                     </div>
                 </div>
